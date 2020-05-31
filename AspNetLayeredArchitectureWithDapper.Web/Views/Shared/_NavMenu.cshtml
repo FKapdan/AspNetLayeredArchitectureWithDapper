@@ -1,0 +1,77 @@
+﻿<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow mb-3">
+    <!--navbar-toggleable-sm-->
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            @*<img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">*@
+            <svg width="50" height="50">
+                <circle cx="25" cy="24" r="20" fill="#aeaeae"></circle>
+                <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="25px" font-family="Arial" dy=".3em">KP</text>
+                Sorry, your browser does not support inline SVG.
+            </svg>
+            KAPDAN
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    @*<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>*@
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    @*<a class="nav-link" href="#">Link</a>*@
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data Lists
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" asp-controller="Datatable" asp-action="Index">User List With Datatable</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @*@if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-controller="Login" asp-action="LogOut" class="nav-link text-dark"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Log Out</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#" class="nav-link text-dark"><i class="fas fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
+                        <li><a asp-controller="Login" asp-action="Index" class="nav-link text-dark"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> Login</a></li>
+                    }*@
+                <li class="nav-item dropdown">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @User.Identity.Name
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a asp-controller="Login" asp-action="LogOut" class="dropdown-item"><i class="fa fa-sign-out-alt" aria-hidden="true"></i> Log Out</a>
+                        </div>
+                    }
+                    else
+                    {
+                    <li><a href="#" class="nav-link text-dark"><i class="fas fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
+                    <li><a asp-controller="Login" asp-action="Index" class="nav-link text-dark"><i class="fa fa-sign-in-alt" aria-hidden="true"></i> Login</a></li>
+                }
+                    </li>
+                </ul>
+                @*<form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>*@
+            </div>
+        </div>
+    </nav>

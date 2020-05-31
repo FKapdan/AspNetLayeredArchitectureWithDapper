@@ -1,0 +1,15 @@
+﻿@model DatatableViewModel<UserModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts{
+    <partial name="../Shared/_DatatablesLibraries.cshtml" />
+    <script src="~/js/DatatableModel.js"></script>
+}
+<h1>Datatables</h1>
+
+<table id="dtUserData" class="table table-striped table-bordered" style="width:100%">
+</table>
+

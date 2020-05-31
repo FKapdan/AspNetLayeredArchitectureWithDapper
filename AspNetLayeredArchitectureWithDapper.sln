@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetLayeredArchitectureWithDapper.Web", "AspNetLayeredArchitectureWithDapper.Web\AspNetLayeredArchitectureWithDapper.Web.csproj", "{E47A65BA-28E9-4159-B4F9-B368DAA49C44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetLayeredArchitectureWithDapper.Business", "AspNetLayeredArchitectureWithDapper.Business\AspNetLayeredArchitectureWithDapper.Business.csproj", "{31199CF1-64AA-4DC7-BBBD-8863EFFD80B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetLayeredArchitectureWithDapper.Repository", "AspNetLayeredArchitectureWithDapper.Repository\AspNetLayeredArchitectureWithDapper.Repository.csproj", "{CF171DAC-F286-4B42-AAA0-DBBD2FE2AE32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetLayeredArchitectureWithDapper.Entities", "AspNetLayeredArchitectureWithDapper.Entities\AspNetLayeredArchitectureWithDapper.Entities.csproj", "{E2AE9171-6265-483D-9DE3-DE87B09BF2B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E47A65BA-28E9-4159-B4F9-B368DAA49C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E47A65BA-28E9-4159-B4F9-B368DAA49C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E47A65BA-28E9-4159-B4F9-B368DAA49C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E47A65BA-28E9-4159-B4F9-B368DAA49C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31199CF1-64AA-4DC7-BBBD-8863EFFD80B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31199CF1-64AA-4DC7-BBBD-8863EFFD80B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31199CF1-64AA-4DC7-BBBD-8863EFFD80B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31199CF1-64AA-4DC7-BBBD-8863EFFD80B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF171DAC-F286-4B42-AAA0-DBBD2FE2AE32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF171DAC-F286-4B42-AAA0-DBBD2FE2AE32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF171DAC-F286-4B42-AAA0-DBBD2FE2AE32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF171DAC-F286-4B42-AAA0-DBBD2FE2AE32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2AE9171-6265-483D-9DE3-DE87B09BF2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2AE9171-6265-483D-9DE3-DE87B09BF2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2AE9171-6265-483D-9DE3-DE87B09BF2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2AE9171-6265-483D-9DE3-DE87B09BF2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C691C98A-DB42-4C3A-A6FE-9FB7D5AE44CE}
+	EndGlobalSection
+EndGlobal

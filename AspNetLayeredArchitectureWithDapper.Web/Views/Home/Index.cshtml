@@ -1,0 +1,8 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@await Component.InvokeAsync("MainPageSlider")
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Contact =><a asp-controller="Contact" asp-action="Index">Me :)</a>.</p>
+</div>
