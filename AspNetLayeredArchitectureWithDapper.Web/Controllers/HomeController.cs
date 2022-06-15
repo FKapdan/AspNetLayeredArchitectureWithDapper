@@ -1,5 +1,4 @@
-﻿using AspNetLayeredArchitectureWithDapper.Web.Models;
-using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
+﻿using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,7 +14,7 @@ namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
         {
             _logger = logger;
         }
-
+        [Authorize]
         public IActionResult Index()
         {
             return View();

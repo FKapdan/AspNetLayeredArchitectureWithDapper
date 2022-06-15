@@ -1,150 +1,110 @@
-﻿using Dapper;
-using Microsoft.Extensions.Configuration;
-using AspNetLayeredArchitectureWithDapper.Entities;
+﻿using AspNetLayeredArchitectureWithDapper.Entities.Interfaces;
+using AspNetLayeredArchitectureWithDapper.Entities.Repository;
+using AspNetLayeredArchitectureWithDapper.Entities.Results;
 using AspNetLayeredArchitectureWithDapper.Repository.Interfaces;
-using System;
+using Dapper;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
 namespace AspNetLayeredArchitectureWithDapper.Repository
 {
-    public class DatabaseTableModelRepository : BaseRepository, IRepository<DatabaseTableModel>
+    public class DatabaseTableModelRepository : BaseRepository, IRepository<DatabaseTableModelDto>
     {
         public DatabaseTableModelRepository(IConfiguration configuration) : base(configuration) { }
 
-        public bool Add(DatabaseTableModel LogData)
+        public IResultBase Add(DatabaseTableModelDto LogData)
         {
-            try
+            using (GetConnection)
             {
-                using (GetConnection)
-                {
-                    var query = "INSERT INTO [dbo].[DatabaseTable] ([PID],[TELNO]) VALUES( @PID, @TELNO)";
+                var query = "INSERT INTO [dbo].[DatabaseTable] ([PID],[TELNO]) VALUES( @PID, @TELNO)";
 
-                    DynamicParameters parameters = new DynamicParameters();
-                    parameters.Add("@PID", LogData.Pid);
-                    parameters.Add("@TELNO", LogData.TelNo);
-                    GetConnection.Open();
-                    SqlMapper.Execute(GetConnection, query, param: parameters, commandType: CommandType.Text);
-                }
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@PID", LogData.Pid);
+                parameters.Add("@TELNO", LogData.TelNo);
+                GetConnection.Open();
+                SqlMapper.Execute(GetConnection, query, param: parameters, commandType: CommandType.Text);
+            }
 
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return new ResultBase(true, null, null);
         }
-        public bool AddMultiple(IEnumerable<DatabaseTableModel> LogData)
+        public IResultBase AddMultiple(IEnumerable<DatabaseTableModelDto> LogData)
         {
-            try
+            object myObj1 = LogData.Select(x => new { PID = x.Pid, TELNO = x.TelNo }).ToArray();
+
+            using (GetConnection)
             {
-                object myObj1 = LogData.Select(x => new { PID = x.Pid, TELNO = x.TelNo }).ToArray();
+                var query = "INSERT INTO [dbo].[DatabaseTable] ([PID],[TELNO]) VALUES( @PID, @TELNO)";
 
-                using (GetConnection)
-                {
-                    var query = "INSERT INTO [dbo].[DatabaseTable] ([PID],[TELNO]) VALUES( @PID, @TELNO)";
-
-                    GetConnection.Open();
-                    SqlMapper.Execute(GetConnection, query, param: myObj1, commandType: CommandType.Text);
-                }
-
-                return true;
+                GetConnection.Open();
+                SqlMapper.Execute(GetConnection, query, param: myObj1, commandType: CommandType.Text);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+
+            return new ResultBase(true, null, null);
         }
 
-        public bool Delete(int Id)
+        public IResultBase Delete(int Id)
         {
-            try
+            using (GetConnection)
             {
-                using (GetConnection)
-                {
-                    var query = "DELETE FROM [dbo].[DatabaseTable] WHERE [Id] = @Id";
+                var query = "DELETE FROM [dbo].[DatabaseTable] WHERE [Id] = @Id";
 
-                    DynamicParameters parameters = new DynamicParameters();
-                    parameters.Add("@Id", Id);
-                    GetConnection.Open();
-                    SqlMapper.Execute(GetConnection, query, param: parameters, commandType: CommandType.Text);
-                }
-                return true;
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Id", Id);
+                GetConnection.Open();
+                SqlMapper.Execute(GetConnection, query, param: parameters, commandType: CommandType.Text);
             }
-            catch (Exception)
-            {
+            return new ResultBase(true, null, null);
+        }
 
-                throw;
+        public IDataResultBase<IEnumerable<DatabaseTableModelDto>> GetList()
+        {
+            using (GetConnection)
+            {
+                var query = "SELECT * FROM [dbo].[DatabaseTable]";
+                GetConnection.Open();
+                var data = SqlMapper.Query<DatabaseTableModelDto>(GetConnection, query, commandType: CommandType.Text).ToList();
+
+                return new DataResultBase<IEnumerable<DatabaseTableModelDto>>(data);
             }
         }
 
-        public IEnumerable<DatabaseTableModel> Get()
+        public IDataResultBase<DatabaseTableModelDto> Get(int Id)
         {
-            try
+            using (GetConnection)
             {
-                using (GetConnection)
-                {
-                    var query = "SELECT * FROM [dbo].[DatabaseTable]";
-                    GetConnection.Open();
-                    IList<DatabaseTableModel> DatabaseTableModelList = SqlMapper.Query<DatabaseTableModel>(GetConnection, query, commandType: CommandType.Text).ToList();
-                    return DatabaseTableModelList;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                var query = "SELECT * FROM [dbo].[DatabaseTable] WHERE [Id]=@Id";
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Id", Id);
+                GetConnection.Open();
+                var data = SqlMapper.Query<DatabaseTableModelDto>(GetConnection, query, parameters, commandType: CommandType.Text).FirstOrDefault();
+                return new DataResultBase<DatabaseTableModelDto>(data);
             }
         }
 
-        public DatabaseTableModel Get(int Id)
+        public IResultBase Update(DatabaseTableModelDto LogData)
         {
-            try
+            using (GetConnection)
             {
-                using (GetConnection)
-                {
-                    var query = "SELECT * FROM [dbo].[DatabaseTable] WHERE [Id]=@Id";
-
-                    DynamicParameters parameters = new DynamicParameters();
-                    parameters.Add("@Id", Id);
-                    GetConnection.Open();
-                    return SqlMapper.Query<DatabaseTableModel>(GetConnection, query, parameters, commandType: CommandType.Text).FirstOrDefault();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                var query = "UPDATE [dbo].[DatabaseTable] SET [PID]=@PID,[TELNO]=@TELNO WHERE [Id]=@Id";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Id", LogData.Id);
+                parameters.Add("@PID", LogData.Pid);
+                parameters.Add("@TELNO", LogData.TelNo);
+                GetConnection.Open();
+                SqlMapper.Execute(GetConnection, query, param: parameters, commandType: CommandType.Text);
+                return new ResultBase(true, null, null);
             }
         }
 
-        public bool Update(DatabaseTableModel LogData)
-        {
-            try
-            {
-                using (GetConnection)
-                {
-                    var query = "UPDATE [dbo].[DatabaseTable] SET [PID]=@PID,[TELNO]=@TELNO WHERE [Id]=@Id";
-                    DynamicParameters parameters = new DynamicParameters();
-                    parameters.Add("@Id", LogData.Id);
-                    parameters.Add("@PID", LogData.Pid);
-                    parameters.Add("@TELNO", LogData.TelNo);
-                    GetConnection.Open();
-                    SqlMapper.Execute(GetConnection, query, param: parameters, commandType: CommandType.Text);
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public (List<DatabaseTableModel> databaseTable, List<DatabaseTable2Model> databaseTable2) GelMultipleDataResult()
+        public (List<DatabaseTableModelDto> databaseTable, List<DatabaseTableModelDto> databaseTable2) GelMultipleDataResult()
         {
             using (var multi = GetConnection.QueryMultiple("SELECT * FROM DatabaseTable; SELECT * FROM DatabaseTable2"))
             {
-                var databaseTable = multi.Read<DatabaseTableModel>().ToList();
-                var databaseTable2 = multi.Read<DatabaseTable2Model>().ToList();
+                var databaseTable = multi.Read<DatabaseTableModelDto>().ToList();
+                var databaseTable2 = multi.Read<DatabaseTableModelDto>().ToList();
                 return (databaseTable, databaseTable2);
             }
         }

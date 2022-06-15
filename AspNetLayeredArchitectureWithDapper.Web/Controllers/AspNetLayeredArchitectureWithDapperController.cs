@@ -6,8 +6,10 @@ namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
 {
     public class AspNetLayeredArchitectureWithDapperController : Controller
     {
-        IRepositoryManager<DatabaseTableModel> _databaseTableModel;
-        public AspNetLayeredArchitectureWithDapperController(IRepositoryManager<DatabaseTableModel> databaseTableModel)
+        private readonly IBusinessServiceBase<DatabaseTableModel> _databaseTableModel;
+        public AspNetLayeredArchitectureWithDapperController(
+            IBusinessServiceBase<DatabaseTableModel> databaseTableModel
+            )
         {
             _databaseTableModel = databaseTableModel;
         }

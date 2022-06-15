@@ -1,10 +1,8 @@
 ﻿using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
 {

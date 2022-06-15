@@ -28,9 +28,7 @@ namespace AspNetLayeredArchitectureWithDapper.Web
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             //Add application services.
-            services.AddTransient<IRepository<DatabaseTableModel>, DatabaseTableModelRepository>();
-            services.AddTransient<IRepositoryManager<DatabaseTableModel>, DatabaseTableModelManager>();
-
+            
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
                 options.LoginPath = Configuration["SiteKeys:LoginPath"];

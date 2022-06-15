@@ -1,9 +1,9 @@
 ﻿using AspNetLayeredArchitectureWithDapper.Entities.Interfaces;
 using System.Collections.Generic;
 
-namespace AspNetLayeredArchitectureWithDapper.Repository.Interfaces
+namespace AspNetLayeredArchitectureWithDapper.Business.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IBusinessServiceBase<T> where T : class
     {
         IDataResultBase<IEnumerable<T>> GetList();
         IDataResultBase<T> Get(int id);
