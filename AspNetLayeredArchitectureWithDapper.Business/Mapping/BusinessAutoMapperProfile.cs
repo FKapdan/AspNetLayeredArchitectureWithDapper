@@ -1,5 +1,7 @@
 ﻿using AspNetLayeredArchitectureWithDapper.Entities;
+using AspNetLayeredArchitectureWithDapper.Entities.Business;
 using AspNetLayeredArchitectureWithDapper.Entities.Repository;
+using AspNetLayeredArchitectureWithDapper.Entities.Results;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,15 @@ namespace AspNetLayeredArchitectureWithDapper.Business.Mapping
         public BusinessProfile()
         {
             CreateMap<DatabaseTableModel, DatabaseTableModelDto>().ReverseMap();
+
+            CreateMap<UsersDto, Users>().ReverseMap();
+            CreateMap<DataResultBase<UsersDto>, DataResultBase<Users>>();
+            CreateMap<DataResultBase<IEnumerable<UsersDto>>, DataResultBase<IEnumerable<Users>>>();
+
+            CreateMap<AssetsDto, Assets>().ReverseMap();
+            CreateMap<DataResultBase<AssetsDto>, DataResultBase<Assets>>();
+            CreateMap<DataResultBase<IEnumerable<AssetsDto>>, DataResultBase<IEnumerable<Assets>>>();
+
             CreateMap<IEnumerable<DatabaseTableModel>, IEnumerable<DatabaseTableModelDto>>().ReverseMap();
 
         }

@@ -1,32 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using AspNetLayeredArchitectureWithDapper.Business.Interfaces;
+using AspNetLayeredArchitectureWithDapper.Entities;
 using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
 {
     public class LoginController : Controller
     {
-        List<LoginViewModel> _UserList { get; set; }
-        List<LoginViewModel> UserList
+        private readonly IBusinessServiceBase<Users> _usersService;
+        public LoginController(IBusinessServiceBase<Users> UsersService)
         {
-            get
-            {
-                if (_UserList == null)
-                {
-                    _UserList = new List<LoginViewModel>() {
-                    new LoginViewModel(){UserName="Captain1",Password="cp125*" },
-                    new LoginViewModel(){UserName="Captain2",Password="cp532-" },
-                    new LoginViewModel(){UserName="Captain3",Password="cp567_" }
-                    };
-                }
-                return _UserList;
-            }
+            _usersService = UsersService;
         }
         public IActionResult Index(string returnUrl)
         {
@@ -39,8 +27,8 @@ namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
             {
                 return View(LoginModel);
             }
-
-            if (UserList.Any(x => x.UserName == LoginModel.UserName && x.Password == LoginModel.Password))
+            var UserCheck = _usersService.Get(new Users() { Active = "T", UserName = LoginModel.UserName, Password = LoginModel.Password });
+            if (UserCheck.Success)
             {
                 var Claims = new List<Claim>() {
                     new Claim(ClaimTypes.Name,LoginModel.UserName)

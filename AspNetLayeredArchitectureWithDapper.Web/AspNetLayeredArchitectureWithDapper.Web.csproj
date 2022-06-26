@@ -6,7 +6,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Middlewares\" />
     <Folder Include="wwwroot\bootstrap\fonts\" />
     <Folder Include="wwwroot\images\slider\" />
   </ItemGroup>

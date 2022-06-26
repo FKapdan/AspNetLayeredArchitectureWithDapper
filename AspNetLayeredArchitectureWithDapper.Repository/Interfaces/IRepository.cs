@@ -1,15 +1,17 @@
 ﻿using AspNetLayeredArchitectureWithDapper.Entities.Interfaces;
+using AspNetLayeredArchitectureWithDapper.Entities.Repository.Interfaces;
 using System.Collections.Generic;
 
 namespace AspNetLayeredArchitectureWithDapper.Repository.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<TEntity> where TEntity :  IEntity
     {
-        IDataResultBase<IEnumerable<T>> GetList();
-        IDataResultBase<T> Get(int id);
-        IResultBase Add(T entity);
-        IResultBase AddMultiple(IEnumerable<T> entity);
+        IDataResultBase<IEnumerable<TEntity>> GetList();
+        IDataResultBase<TEntity> Get(TEntity entity);
+        IDataResultBase<TEntity> Get(int id);
+        IResultBase Add(TEntity entity);
+        IResultBase AddMultiple(IEnumerable<TEntity> entity);
         IResultBase Delete(int id);
-        IResultBase Update(T entity);
+        IResultBase Update(TEntity entity);
     }
 }

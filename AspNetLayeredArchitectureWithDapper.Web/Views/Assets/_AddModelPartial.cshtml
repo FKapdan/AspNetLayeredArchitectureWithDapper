@@ -1,0 +1,27 @@
+﻿@model Assets
+
+    <div class="modal fade" id="addAsset">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="addAssetLabel" class="modal-title">Asset Ekle</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="Add">
+                        <div class="form-group">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-fanger"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" data-save="modal">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>

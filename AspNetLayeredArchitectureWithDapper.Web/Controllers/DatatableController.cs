@@ -15,12 +15,11 @@ namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
         [HttpPost]
         public IActionResult GetUserList()
         {
-            DatatableViewModel<UserModel> ViewResult = new DatatableViewModel<UserModel>
-            {
-                Columns = GetModelDisplayNames<UserModel>(),
-                Data = new List<UserModel>(),
-                Success = true
-            };
+            DatatableViewModel<UserModel> ViewResult = new DatatableViewModel<UserModel>(
+                GetModelDisplayNames<UserModel>(),
+                new List<UserModel>(),
+                true
+            );
             #region Data Setion
             try
             {
@@ -57,7 +56,7 @@ namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
             }
             catch (Exception ex)
             {
-                ViewResult.Message = ex.ToString();
+                ViewResult.Error = ex.ToString();
 
             }
             #endregion

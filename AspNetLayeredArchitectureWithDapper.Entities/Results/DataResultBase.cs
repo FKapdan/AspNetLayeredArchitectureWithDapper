@@ -8,6 +8,10 @@ namespace AspNetLayeredArchitectureWithDapper.Entities.Results
         {
             this.Data = Data;
         }
+        public DataResultBase(T Data, bool Success) : base(Success, default, default)
+        {
+            this.Data = Data;
+        }
         public T Data { get; set; }
     }
 }

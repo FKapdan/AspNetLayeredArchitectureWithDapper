@@ -4,6 +4,10 @@ namespace AspNetLayeredArchitectureWithDapper.Entities.Results
 {
     public class ResultBase: IResultBase
     {
+        public ResultBase(bool Success)
+        {
+            this.Success = Success;
+        }
         public ResultBase(bool Success, string Error, string ErrorDetail)
         {
             this.Success = Success;

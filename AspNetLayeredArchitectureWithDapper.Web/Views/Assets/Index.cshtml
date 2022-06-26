@@ -1,0 +1,69 @@
+﻿@model IDataBaseViewModel<IEnumerable<AssetsViewModel>>
+@{
+    ViewData["Title"] = "Aseets";
+}
+<h1>@ViewData["Title"]</h1>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            var PlaceHolderElement = $("#PlaceHolderHere")
+            $("button[data-toggle='ajax-modal']").click(function (event) {
+                var url = $(this).data("url");
+                var decodedUrl = decodeURIComponent(url);
+                $.get(decodedUrl).done(function (data) {
+                    PlaceHolderElement.html(data);
+                    PlaceHolderElement.find(".modal").modal("show");
+                });
+            });
+            PlaceHolderElement.on("click", "[data-save='modal']", function (event) {
+                event.preventDefault();
+                var form = $(this).parents(".modal").find("form");
+                var actionUrl = form.attr("action");
+                if (actionUrl.indexOf("Assets/") != 0) {
+                    actionUrl = "Assets/" + actionUrl;
+                }
+                var sendData = form.serialize();
+                $.post(actionUrl, sendData).done(function (data) {
+                    PlaceHolderElement.find(".modal").modal("hide");
+                });
+            });
+        });
+    </script>
+}
+@if (Model.Success)
+{
+    <div id="PlaceHolderHere"></div>
+    <p>
+        <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addAsset" data-url="@Url.Action("Add")">Ekle</button>
+    </p>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                @foreach (var Column in @Model.DataColumns())
+                {
+                    if (Column.Visible)
+                    {
+                        <th scope="col">@Column.Title</th>
+                    }
+                }
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (AssetsViewModel RowData in @Model.PageData)
+                {
+                    <td>@RowData.Name</td>
+                    <td>@RowData.Brand</td>
+                    <td>@RowData.Count</td>
+                    <td>@RowData.Active</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#editAsset" data-url="@Url.Action($"Edit/{RowData.Id}")">Düzenle</button>
+                    </td>
+                }
+
+            </tr>
+        </tbody>
+    </table>
+}

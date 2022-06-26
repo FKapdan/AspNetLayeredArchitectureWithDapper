@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AspNetLayeredArchitectureWithDapper.Web.ViewModels.Interfaces;
 
 namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels
 {
-    public class BaseViewModel
+    public class BaseViewModel : IBaseViewModel
     {
+        public BaseViewModel(bool Success)
+        {
+            this.Success = Success;
+        }
+        public BaseViewModel(bool Success, string Error)
+        {
+            this.Success = Success;
+            this.Error = Error;
+        }
         public bool Success { get; set; }
-        public string Message { get; set; }
+        public string Error { get; set; }
     }
 }

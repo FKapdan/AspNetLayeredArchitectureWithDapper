@@ -1,16 +1,13 @@
+using AspNetLayeredArchitectureWithDapper.Business.DependencyInjection;
+using AspNetLayeredArchitectureWithDapper.Web.Filters;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using AspNetLayeredArchitectureWithDapper.Business;
-using AspNetLayeredArchitectureWithDapper.Business.Interfaces;
-using AspNetLayeredArchitectureWithDapper.Entities;
-using AspNetLayeredArchitectureWithDapper.Repository;
-using AspNetLayeredArchitectureWithDapper.Repository.Interfaces;
 using System;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace AspNetLayeredArchitectureWithDapper.Web
 {
@@ -39,6 +36,14 @@ namespace AspNetLayeredArchitectureWithDapper.Web
                 //options.Cookie.SecurePolicy = env.IsDevelopment() ? CookieSecurePolicy.None : CookieSecurePolicy.Always;
                 options.Cookie.SameSite = SameSiteMode.Lax;
             });
+            services.AddAuthorization();
+            services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(typeof(GeneralExceptionFilter));//api global exception yakalar.
+                options.Filters.Add(typeof(GeneralModelValidationAttribute));//api metod validationlarýný yapar.
+            });
+            services.AddAutoMapper(typeof(Startup));
+            services.AddBusinessServices(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
