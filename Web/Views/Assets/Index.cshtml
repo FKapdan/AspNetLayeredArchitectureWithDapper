@@ -1,6 +1,6 @@
 ﻿@model IDataBaseViewModel<IEnumerable<AssetsViewModel>>
 @{
-    ViewData["Title"] = "Aseets";
+    ViewData["Title"] = "Assets";
 }
 <h1>@ViewData["Title"]</h1>
 
@@ -26,6 +26,7 @@
                 var sendData = form.serialize();
                 $.post(actionUrl, sendData).done(function (data) {
                     PlaceHolderElement.find(".modal").modal("hide");
+                    location.reload();
                 });
             });
         });
@@ -51,9 +52,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                @foreach (AssetsViewModel RowData in @Model.PageData)
-                {
+            @foreach (AssetsViewModel RowData in @Model.PageData)
+            {
+                <tr>
                     <td>@RowData.Name</td>
                     <td>@RowData.Brand</td>
                     <td>@RowData.Count</td>
@@ -61,9 +62,8 @@
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#editAsset" data-url="@Url.Action($"Edit/{RowData.Id}")">Düzenle</button>
                     </td>
-                }
-
-            </tr>
+                </tr>
+            }
         </tbody>
     </table>
 }

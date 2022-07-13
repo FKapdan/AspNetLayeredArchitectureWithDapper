@@ -10,7 +10,7 @@ namespace AspNetLayeredArchitectureWithDapper.Web.AutoMapperProfile
     {
         public AutoMapperProfile()
         {
-            CreateMap<Assets, AssetsViewModel>();
+            CreateMap<Assets, AssetsViewModel>().ReverseMap();
             CreateMap<DataResultBase<IEnumerable<Assets>>, PageViewModel<IEnumerable<AssetsViewModel>>>()
                 .ForMember(dest => dest.PageData, opt => opt.MapFrom(src => src.Data));
         }

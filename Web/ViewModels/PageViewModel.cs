@@ -8,7 +8,7 @@ namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels
 {
     public class PageViewModel<T> : BaseViewModel, IDataBaseViewModel<T> where T : class
     {
-        public PageViewModel(bool Success, T PageData) : base(Success) { }
+        public PageViewModel(bool Success) : base(Success) { }
         public PageViewModel(bool Success, string Error) : base(Success, Error) { }
         public T PageData { get; set; }
         public List<DataColumn> DataColumns()

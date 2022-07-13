@@ -31,21 +31,27 @@ namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            return PartialView("_AddModelPartial", new Assets());
+            return PartialView("_AddModelPartial", new AssetsViewModel());
         }
         [HttpPost]
-        public IActionResult Add(Assets asset)
+        public IActionResult Add(AssetsViewModel asset)
         {
-            return PartialView("_AddModelPartial", new Assets());
+            var AssetData = _mapper.Map<Assets>(asset);
+            var result = _assetsService.Add(AssetData);
+            return PartialView("_AddModelPartial", asset);
         }
         [HttpGet]
         public IActionResult Edit(int Id)
         {
-            return PartialView("_EditModelPartial", _assetsService.GetList().Data.First());
+            var ServiceResult = _assetsService.Get(Id);
+            var AssetViewData = _mapper.Map<AssetsViewModel>(ServiceResult.Data);
+            return PartialView("_EditModelPartial", AssetViewData);
         }
         [HttpPost]
-        public IActionResult Edit(Assets asset)
+        public IActionResult Edit(AssetsViewModel asset)
         {
+            var AssetData = _mapper.Map<Assets>(asset);
+            _assetsService.Update(AssetData);
             return PartialView("_EditModelPartial", asset);
         }
     }

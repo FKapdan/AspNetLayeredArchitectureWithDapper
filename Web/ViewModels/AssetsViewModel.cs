@@ -5,8 +5,8 @@ namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels
 {
     public class AssetsViewModel
     {
-        [DisplayName("Id")]
         [PropVisible(false)]
+        [DisplayName("Id")]
         public int Id { get; set; }
         [DisplayName("Ad")]
         public string Name { get; set; }
