@@ -1,4 +1,4 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Results;
+﻿using AspNetLayeredArchitectureWithDapper.Core.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 

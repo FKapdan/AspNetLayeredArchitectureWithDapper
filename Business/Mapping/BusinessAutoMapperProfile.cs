@@ -1,10 +1,8 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities;
+﻿using AspNetLayeredArchitectureWithDapper.Core.Results;
+using AspNetLayeredArchitectureWithDapper.Entities;
 using AspNetLayeredArchitectureWithDapper.Entities.Business;
 using AspNetLayeredArchitectureWithDapper.Entities.Repository;
-using AspNetLayeredArchitectureWithDapper.Entities.Results;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
 
 namespace AspNetLayeredArchitectureWithDapper.Business.Mapping
 {

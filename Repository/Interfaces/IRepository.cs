@@ -1,4 +1,4 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Interfaces;
+﻿using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
 using AspNetLayeredArchitectureWithDapper.Entities.Repository.Interfaces;
 using System.Collections.Generic;
 

@@ -1,10 +1,9 @@
 ﻿using AspNetLayeredArchitectureWithDapper.Business.Mapping;
+using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
+using AspNetLayeredArchitectureWithDapper.Core.Results;
 using AspNetLayeredArchitectureWithDapper.Entities;
-using AspNetLayeredArchitectureWithDapper.Entities.Interfaces;
 using AspNetLayeredArchitectureWithDapper.Entities.Repository;
-using AspNetLayeredArchitectureWithDapper.Entities.Results;
 using AspNetLayeredArchitectureWithDapper.Repository.Interfaces;
-using System.Collections.Generic;
 
 namespace AspNetLayeredArchitectureWithDapper.Business
 {

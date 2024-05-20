@@ -1,11 +1,7 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Results;
+﻿using AspNetLayeredArchitectureWithDapper.Core.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AspNetLayeredArchitectureWithDapper.Web.Filters
 {

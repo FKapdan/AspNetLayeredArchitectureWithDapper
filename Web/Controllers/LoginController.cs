@@ -28,7 +28,7 @@ namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
                 return View(LoginModel);
             }
             var UserCheck = _usersService.Get(new Users() { Active = "T", UserName = LoginModel.UserName, Password = LoginModel.Password });
-            if (UserCheck.Success)
+            if (UserCheck.Success && UserCheck.Data != null)
             {
                 var Claims = new List<Claim>() {
                     new Claim(ClaimTypes.Name,LoginModel.UserName)
@@ -37,7 +37,7 @@ namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
 
                 var userPrincipal = new ClaimsPrincipal(CalimIdentity);
 
-                HttpContext.SignInAsync(userPrincipal);
+                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, userPrincipal).Wait();
 
                 if (string.IsNullOrEmpty(LoginModel.ReturnUrl))
                 {

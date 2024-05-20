@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : AspNetLayeredArchitectureWithDapperBase
     {
         public IActionResult Index()
         {

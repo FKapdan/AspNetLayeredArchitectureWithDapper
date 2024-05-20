@@ -1,4 +1,4 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Interfaces;
+﻿using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
 using System.Collections.Generic;
 
 namespace AspNetLayeredArchitectureWithDapper.Business.Interfaces

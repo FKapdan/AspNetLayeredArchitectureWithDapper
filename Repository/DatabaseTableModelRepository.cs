@@ -1,11 +1,9 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Interfaces;
+﻿using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
+using AspNetLayeredArchitectureWithDapper.Core.Results;
 using AspNetLayeredArchitectureWithDapper.Entities.Repository;
-using AspNetLayeredArchitectureWithDapper.Entities.Results;
 using Dapper;
 using MySql.Data.MySqlClient;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 
 namespace AspNetLayeredArchitectureWithDapper.Repository
 {

@@ -1,6 +1,4 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Interfaces;
-
-namespace AspNetLayeredArchitectureWithDapper.Entities.Repository
+﻿namespace AspNetLayeredArchitectureWithDapper.Entities.Repository
 {
     public class DatabaseTableModelDto : EntityBase
     {

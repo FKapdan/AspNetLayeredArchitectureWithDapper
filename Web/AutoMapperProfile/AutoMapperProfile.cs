@@ -1,8 +1,7 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Business;
-using AspNetLayeredArchitectureWithDapper.Entities.Results;
+﻿using AspNetLayeredArchitectureWithDapper.Core.Results;
+using AspNetLayeredArchitectureWithDapper.Entities.Business;
 using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
 using AutoMapper;
-using System.Collections.Generic;
 
 namespace AspNetLayeredArchitectureWithDapper.Web.AutoMapperProfile
 {

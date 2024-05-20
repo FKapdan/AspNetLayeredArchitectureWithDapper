@@ -1,0 +1,21 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+@section Styles {
+    <style type="text/css">
+        body,
+        html {
+            height: 100%;
+        }
+    </style>
+}
+@section Scripts {
+}
+
+<div class="col-md-12 text-center">
+    <h1>@Model.StatusCode</h1>
+    <h2>@Model.Message</h2>
+    <p>@Model.Detail</p>
+</div>

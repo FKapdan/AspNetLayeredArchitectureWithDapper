@@ -1,5 +1,5 @@
 ﻿using AspNetLayeredArchitectureWithDapper.Business.Interfaces;
-using AspNetLayeredArchitectureWithDapper.Entities.Interfaces;
+using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
 using System;
 using System.Collections.Generic;
 
