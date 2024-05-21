@@ -1,17 +1,16 @@
 ﻿using Business.Mapping;
+using Core.Abstracts;
 using Core.Entities.Abstracts;
 using Core.Entities.Results;
 using Entities.Business;
 using Entities.Repository;
-using Repository;
-using Repository.Interfaces;
 
 namespace Business
 {
-    public class AssetsService : BusinessServiceBase<Assets>
+    public class AssetsService : LayerAbstractBase<Assets>
     {
-        private readonly RepositoryBase<AssetsDto> _repository;
-        public AssetsService(RepositoryBase<AssetsDto> Repository)
+        private readonly LayerAbstractBase<AssetsDto> _repository;
+        public AssetsService(LayerAbstractBase<AssetsDto> Repository)
         {
             _repository = Repository;
         }

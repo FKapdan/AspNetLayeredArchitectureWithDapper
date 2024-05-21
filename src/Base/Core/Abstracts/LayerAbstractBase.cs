@@ -1,16 +1,15 @@
-﻿using Core.Abstracts;
-using Core.Entities.Abstracts;
+﻿using Core.Entities.Abstracts;
 
-namespace Business
+namespace Core.Abstracts
 {
-    public abstract class BusinessServiceBase<T> : ILayerBase<T> where T : IEntity
+    public abstract class LayerAbstractBase<TEntity> : ILayerBase<TEntity> where TEntity : IEntity
     {
-        public virtual IResultBase Add(T entity)
+        public virtual IResultBase Add(TEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public virtual IResultBase AddMultiple(IEnumerable<T> entity)
+        public virtual IResultBase AddMultiple(IEnumerable<TEntity> entity)
         {
             throw new NotImplementedException();
         }
@@ -20,22 +19,22 @@ namespace Business
             throw new NotImplementedException();
         }
 
-        public virtual IDataResultBase<T> Get(T entity)
+        public virtual IDataResultBase<TEntity> Get(TEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public virtual IDataResultBase<T> Get(int id)
+        public virtual IDataResultBase<TEntity> Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public virtual IDataResultBase<IEnumerable<T>> GetList()
+        public virtual IDataResultBase<IEnumerable<TEntity>> GetList()
         {
             throw new NotImplementedException();
         }
 
-        public virtual IResultBase Update(T entity)
+        public virtual IResultBase Update(TEntity entity)
         {
             throw new NotImplementedException();
         }

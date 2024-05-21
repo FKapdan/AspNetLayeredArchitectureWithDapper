@@ -1,17 +1,16 @@
 ﻿using Business.Mapping;
+using Core.Abstracts;
 using Core.Entities.Abstracts;
 using Core.Entities.Results;
 using Entities;
 using Entities.Repository;
-using Repository;
-using Repository.Interfaces;
 
 namespace Business
 {
-    public class DatabaseTableModelService : BusinessServiceBase<DatabaseTableModel>
+    public class DatabaseTableModelService : LayerAbstractBase<DatabaseTableModel>
     {
-        private readonly RepositoryBase<DatabaseTableModelDto> _repository;
-        public DatabaseTableModelService(RepositoryBase<DatabaseTableModelDto> Repository)
+        private readonly LayerAbstractBase<DatabaseTableModelDto> _repository;
+        public DatabaseTableModelService(LayerAbstractBase<DatabaseTableModelDto> Repository)
         {
             _repository = Repository;
         }

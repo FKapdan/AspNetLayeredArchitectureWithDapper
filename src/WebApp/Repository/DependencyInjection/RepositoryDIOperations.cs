@@ -1,8 +1,8 @@
-﻿using Entities.Repository;
+﻿using Core.Abstracts;
+using Entities.Repository;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.MySqlClient;
-using Repository.Interfaces;
 
 namespace Repository.DependencyInjection
 {
@@ -16,9 +16,9 @@ namespace Repository.DependencyInjection
         public static void AddRepositoryServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<MySqlConnection>(_ => new MySqlConnection(configuration["ConnectionStrings:DefaultConnection"]));
-            services.AddTransient<RepositoryBase<DatabaseTableModelDto>, DatabaseTableModelRepository>();
-            services.AddTransient<RepositoryBase<UsersDto>, UsersRepository>();
-            services.AddTransient<RepositoryBase<AssetsDto>, AssetsRepository>();
+            services.AddTransient<LayerAbstractBase<DatabaseTableModelDto>, DatabaseTableModelRepository>();
+            services.AddTransient<LayerAbstractBase<UsersDto>, UsersRepository>();
+            services.AddTransient<LayerAbstractBase<AssetsDto>, AssetsRepository>();
         }
     }
 }

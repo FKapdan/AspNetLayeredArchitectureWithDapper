@@ -1,4 +1,5 @@
-﻿using Core.Entities.Abstracts;
+﻿using Core.Abstracts;
+using Core.Entities.Abstracts;
 using Core.Entities.Results;
 using Dapper;
 using Entities.Repository;
@@ -7,7 +8,7 @@ using System.Data;
 
 namespace Repository
 {
-    public class DatabaseTableModelRepository : RepositoryBase<DatabaseTableModelDto>
+    public class DatabaseTableModelRepository : LayerAbstractBase<DatabaseTableModelDto>
     {
         private readonly MySqlConnection _dbConnection;
         public DatabaseTableModelRepository(MySqlConnection DbConnection) { _dbConnection = DbConnection; }
