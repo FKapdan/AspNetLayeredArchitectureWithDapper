@@ -10,8 +10,8 @@ namespace Web.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly ILayerBase<Users> _usersService;
-        public LoginController(ILayerBase<Users> UsersService)
+        private readonly LayerAbstractBase<Users> _usersService;
+        public LoginController(LayerAbstractBase<Users> UsersService)
         {
             _usersService = UsersService;
         }

@@ -8,10 +8,10 @@ namespace Web.Controllers
 {
     public class AssetsController : AspNetLayeredArchitectureWithDapperBase
     {
-        private readonly ILayerBase<Assets> _assetsService;
+        private readonly LayerAbstractBase<Assets> _assetsService;
         private readonly IMapper _mapper;
         public AssetsController(
-            ILayerBase<Assets> AssetsService,
+            LayerAbstractBase<Assets> AssetsService,
             IMapper Mapper
             )
         {

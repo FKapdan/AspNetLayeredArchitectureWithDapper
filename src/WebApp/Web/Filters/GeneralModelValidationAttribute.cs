@@ -16,13 +16,13 @@ namespace Web.Filters
                 {
                     if (context.ModelState.Values.ToList()[i].ValidationState == ModelValidationState.Invalid)
                     {
-                        if (string.IsNullOrEmpty(PageResult.Error))
+                        if (string.IsNullOrEmpty(PageResult.Message))
                         {
-                            PageResult.Error += $" {context.ModelState.Values.ToList()[i].Errors[0].ErrorMessage}";
+                            PageResult.Message += $" {context.ModelState.Values.ToList()[i].Errors[0].ErrorMessage}";
                         }
                         else
                         {
-                            PageResult.Error += $" {context.ModelState.Values.ToList()[i].Errors[0].ErrorMessage + " | "}";
+                            PageResult.Message += $" {context.ModelState.Values.ToList()[i].Errors[0].ErrorMessage + " | "}";
                         }
                     }
                 }

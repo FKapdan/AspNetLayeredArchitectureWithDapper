@@ -8,21 +8,26 @@ namespace Core.Entities.Results
         {
             this.Success = Success;
         }
-        public ResultBase(bool Success, string Error, string ErrorDetail)
+        public ResultBase(bool Success, string Message, string Detail)
         {
             this.Success = Success;
-            this.Error = Error;
-            this.ErrorDetail = ErrorDetail;
+            this.Message = Message;
+            this.Detail = Detail;
+        }
+        public ResultBase(bool Success, string Message)
+        {
+            this.Success = Success;
+            this.Message = Message;
         }
 
         public bool Success { get; set; }
         /// <summary>
         /// Ekran hata dönüşlerinde kulanılabilir.
         /// </summary>
-        public string Error { get; set; }
+        public string Message { get; set; }
         /// <summary>
         /// Loglamalarda kullanılabilir.
         /// </summary>
-        public string ErrorDetail { get; set; }
+        public string Detail { get; set; }
     }
 }

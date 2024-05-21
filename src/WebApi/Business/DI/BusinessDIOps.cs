@@ -3,11 +3,11 @@ using Entities;
 using Entities.Business;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Repository.DependencyInjection;
+using Repository.DI;
 
-namespace Business.DependencyInjection
+namespace Business.DI
 {
-    public static class BusinessDIOperations
+    public static class BusinessDIOps
     {
         /// <summary>
         /// Business katmanındaki servisler

@@ -6,10 +6,10 @@
         /// <summary>
         /// Ekran hata dönüşlerinde kulanılabilir.
         /// </summary>
-        public string Error { get; set; }
+        public string Message { get; set; }
         /// <summary>
         /// Loglamalarda kullanılabilir.
         /// </summary>
-        public string ErrorDetail { get; set; }
+        public string Detail { get; set; }
     }
 }
