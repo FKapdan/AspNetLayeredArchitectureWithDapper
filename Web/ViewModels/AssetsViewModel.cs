@@ -1,7 +1,7 @@
-﻿using AspNetLayeredArchitectureWithDapper.Web.Attributes;
+﻿using Web.Attributes;
 using System.ComponentModel;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels
+namespace Web.ViewModels
 {
     public class AssetsViewModel
     {

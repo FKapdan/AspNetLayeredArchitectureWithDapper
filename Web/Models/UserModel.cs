@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.Models
+namespace Web.Models
 {
     public class UserModel
     {

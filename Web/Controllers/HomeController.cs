@@ -1,10 +1,10 @@
-﻿using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
+﻿using Web.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
+namespace Web.Controllers
 {
     public class HomeController : AspNetLayeredArchitectureWithDapperBase
     {

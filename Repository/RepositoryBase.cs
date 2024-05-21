@@ -1,10 +1,10 @@
-﻿using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
-using AspNetLayeredArchitectureWithDapper.Entities.Repository.Interfaces;
-using AspNetLayeredArchitectureWithDapper.Repository.Interfaces;
+﻿using Core.Entities.Abstracts;
+using Entities.Repository.Interfaces;
+using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 
-namespace AspNetLayeredArchitectureWithDapper.Repository
+namespace Repository
 {
     public abstract class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : IEntity
     {

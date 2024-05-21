@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.Attributes
+namespace Web.Attributes
 {
     public class PropVisibleAttribute : Attribute
     {

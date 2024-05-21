@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AspNetLayeredArchitectureWithDapper.Entities.Business
+namespace Entities.Business
 {
     public class DatabaseTable2Model
     {

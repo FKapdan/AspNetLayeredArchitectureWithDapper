@@ -1,10 +1,10 @@
-﻿using AspNetLayeredArchitectureWithDapper.Web.ViewModels.Interfaces;
+﻿using Web.ViewModels.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels
+namespace Web.ViewModels
 {
     public class PageViewModel<T> : BaseViewModel, IDataBaseViewModel<T> where T : class
     {

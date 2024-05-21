@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels.Interfaces
+namespace Web.ViewModels.Interfaces
 {
     public interface IDataBaseViewModel<T>: IBaseViewModel where T : class
     {

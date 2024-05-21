@@ -1,4 +1,4 @@
-﻿using AspNetLayeredArchitectureWithDapper.Core.Results;
+﻿using Core.Entities.Results;
 using Core.Extensions;
 using Core.Utilities.Abstracts;
 using Microsoft.AspNetCore.Authentication;

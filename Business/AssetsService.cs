@@ -1,12 +1,12 @@
-﻿using AspNetLayeredArchitectureWithDapper.Business.Mapping;
-using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
-using AspNetLayeredArchitectureWithDapper.Core.Results;
-using AspNetLayeredArchitectureWithDapper.Entities.Business;
-using AspNetLayeredArchitectureWithDapper.Entities.Repository;
-using AspNetLayeredArchitectureWithDapper.Repository.Interfaces;
+﻿using Business.Mapping;
+using Core.Entities.Abstracts;
+using Core.Entities.Results;
+using Entities.Business;
+using Entities.Repository;
+using Repository.Interfaces;
 using System.Collections.Generic;
 
-namespace AspNetLayeredArchitectureWithDapper.Business
+namespace Business
 {
     public class AssetsService : BusinessServiceBase<Assets>
     {

@@ -1,6 +1,6 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Repository.Interfaces;
+﻿using Entities.Repository.Interfaces;
 
-namespace AspNetLayeredArchitectureWithDapper.Entities.Repository
+namespace Entities.Repository
 {
     public class EntityBase : IEntity
     {

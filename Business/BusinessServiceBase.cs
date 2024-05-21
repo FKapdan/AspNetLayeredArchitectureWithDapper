@@ -1,9 +1,9 @@
-﻿using AspNetLayeredArchitectureWithDapper.Business.Interfaces;
-using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
+﻿using Business.Interfaces;
+using Core.Entities.Abstracts;
 using System;
 using System.Collections.Generic;
 
-namespace AspNetLayeredArchitectureWithDapper.Business
+namespace Business
 {
     public abstract class BusinessServiceBase<T> : IBusinessServiceBase<T> where T : class
     {

@@ -1,4 +1,4 @@
-﻿namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels.Interfaces
+﻿namespace Web.ViewModels.Interfaces
 {
     public interface IBaseViewModel
     {

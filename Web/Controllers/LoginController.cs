@@ -1,13 +1,13 @@
-﻿using AspNetLayeredArchitectureWithDapper.Business.Interfaces;
-using AspNetLayeredArchitectureWithDapper.Entities;
-using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
+﻿using Business.Interfaces;
+using Entities;
+using Web.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
+namespace Web.Controllers
 {
     public class LoginController : Controller
     {

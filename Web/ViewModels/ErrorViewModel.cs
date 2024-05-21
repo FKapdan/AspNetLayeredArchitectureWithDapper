@@ -1,6 +1,6 @@
 using System;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels
+namespace Web.ViewModels
 {
     public class ErrorViewModel
     {

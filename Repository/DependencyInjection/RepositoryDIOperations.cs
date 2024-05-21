@@ -1,10 +1,10 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Repository;
-using AspNetLayeredArchitectureWithDapper.Repository.Interfaces;
+﻿using Entities.Repository;
+using Repository.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.MySqlClient;
 
-namespace AspNetLayeredArchitectureWithDapper.Repository.DependencyInjection
+namespace Repository.DependencyInjection
 {
     public static class RepositoryDIOperations
     {

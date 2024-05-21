@@ -1,9 +1,9 @@
-﻿using AspNetLayeredArchitectureWithDapper.Core.Results;
-using AspNetLayeredArchitectureWithDapper.Entities.Business;
-using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
+﻿using Core.Entities.Results;
+using Entities.Business;
+using Web.ViewModels;
 using AutoMapper;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.AutoMapperProfile
+namespace Web.AutoMapperProfile
 {
     public class AutoMapperProfile : Profile
     {

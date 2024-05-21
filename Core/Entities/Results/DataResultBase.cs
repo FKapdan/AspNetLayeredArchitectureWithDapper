@@ -1,6 +1,6 @@
-﻿using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
+﻿using Core.Entities.Abstracts;
 
-namespace AspNetLayeredArchitectureWithDapper.Core.Results
+namespace Core.Entities.Results
 {
     public class DataResultBase<T> : ResultBase, IDataResultBase<T>
     {

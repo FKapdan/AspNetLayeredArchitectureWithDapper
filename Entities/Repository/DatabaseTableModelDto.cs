@@ -1,4 +1,4 @@
-﻿namespace AspNetLayeredArchitectureWithDapper.Entities.Repository
+﻿namespace Entities.Repository
 {
     public class DatabaseTableModelDto : EntityBase
     {

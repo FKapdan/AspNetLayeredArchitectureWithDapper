@@ -1,11 +1,11 @@
-﻿using AspNetLayeredArchitectureWithDapper.Business.Mapping;
-using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
-using AspNetLayeredArchitectureWithDapper.Core.Results;
-using AspNetLayeredArchitectureWithDapper.Entities;
-using AspNetLayeredArchitectureWithDapper.Entities.Repository;
-using AspNetLayeredArchitectureWithDapper.Repository.Interfaces;
+﻿using Business.Mapping;
+using Core.Entities.Abstracts;
+using Core.Entities.Results;
+using Entities;
+using Entities.Repository;
+using Repository.Interfaces;
 
-namespace AspNetLayeredArchitectureWithDapper.Business
+namespace Business
 {
     public class DatabaseTableModelService : BusinessServiceBase<DatabaseTableModel>
     {

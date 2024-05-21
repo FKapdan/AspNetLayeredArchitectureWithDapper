@@ -1,4 +1,4 @@
-﻿namespace AspNetLayeredArchitectureWithDapper.Entities.Repository.Interfaces
+﻿namespace Entities.Repository.Interfaces
 {
     public interface IEntity
     {

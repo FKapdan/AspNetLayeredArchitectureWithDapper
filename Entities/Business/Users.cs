@@ -1,6 +1,6 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Repository;
+﻿using Entities.Repository;
 
-namespace AspNetLayeredArchitectureWithDapper.Entities
+namespace Entities
 {
     public class Users: EntityBase
     {

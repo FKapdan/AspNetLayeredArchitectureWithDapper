@@ -1,10 +1,10 @@
-﻿using AspNetLayeredArchitectureWithDapper.Core.Results;
-using AspNetLayeredArchitectureWithDapper.Entities;
-using AspNetLayeredArchitectureWithDapper.Entities.Business;
-using AspNetLayeredArchitectureWithDapper.Entities.Repository;
+﻿using Core.Entities.Results;
+using Entities;
+using Entities.Business;
+using Entities.Repository;
 using AutoMapper;
 
-namespace AspNetLayeredArchitectureWithDapper.Business.Mapping
+namespace Business.Mapping
 {
     public class BusinessProfile : Profile
     {

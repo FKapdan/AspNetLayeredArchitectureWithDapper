@@ -1,6 +1,6 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities.Repository;
+﻿using Entities.Repository;
 
-namespace AspNetLayeredArchitectureWithDapper.Entities.Business
+namespace Entities.Business
 {
     public class Assets : EntityBase
     {

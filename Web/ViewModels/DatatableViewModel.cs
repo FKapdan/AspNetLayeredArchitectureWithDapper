@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels
+namespace Web.ViewModels
 {
     public class DatatableViewModel<T> : BaseViewModel where T : class
     {

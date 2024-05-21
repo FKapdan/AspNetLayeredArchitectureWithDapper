@@ -1,5 +1,5 @@
-﻿using AspNetLayeredArchitectureWithDapper.Web.Models;
-using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
+﻿using Web.Models;
+using Web.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.ViewComponents
+namespace Web.ViewComponents
 {
     public class MainPageSlider : ViewComponent
     {

@@ -1,8 +1,8 @@
-﻿using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
-using AspNetLayeredArchitectureWithDapper.Entities.Repository.Interfaces;
+﻿using Core.Entities.Abstracts;
+using Entities.Repository.Interfaces;
 using System.Collections.Generic;
 
-namespace AspNetLayeredArchitectureWithDapper.Repository.Interfaces
+namespace Repository.Interfaces
 {
     public interface IRepository<TEntity> where TEntity :  IEntity
     {

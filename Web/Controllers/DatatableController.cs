@@ -1,10 +1,10 @@
-﻿using AspNetLayeredArchitectureWithDapper.Web.Models;
-using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
+﻿using Web.Models;
+using Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
+namespace Web.Controllers
 {
     public class DatatableController : AspNetLayeredArchitectureWithDapperBase
     {

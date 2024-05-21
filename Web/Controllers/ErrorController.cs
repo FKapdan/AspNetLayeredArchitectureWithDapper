@@ -1,9 +1,9 @@
-﻿using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
-using AspNetLayeredArchitectureWithDapper.Core.Extensions;
+﻿using Web.ViewModels;
+using Core.Extensions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using AspNetLayeredArchitectureWithDapper.Web.Controllers;
+using Web.Controllers;
 
 namespace Web.Controllers
 {

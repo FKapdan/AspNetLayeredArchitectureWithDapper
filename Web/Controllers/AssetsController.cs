@@ -1,12 +1,12 @@
-﻿using AspNetLayeredArchitectureWithDapper.Business.Interfaces;
-using AspNetLayeredArchitectureWithDapper.Entities.Business;
-using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
+﻿using Business.Interfaces;
+using Entities.Business;
+using Web.ViewModels;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
+namespace Web.Controllers
 {
     public class AssetsController : AspNetLayeredArchitectureWithDapperBase
     {

@@ -1,11 +1,11 @@
-﻿using AspNetLayeredArchitectureWithDapper.Business.Interfaces;
-using AspNetLayeredArchitectureWithDapper.Entities;
-using AspNetLayeredArchitectureWithDapper.Entities.Business;
-using AspNetLayeredArchitectureWithDapper.Repository.DependencyInjection;
+﻿using Business.Interfaces;
+using Entities;
+using Entities.Business;
+using Repository.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AspNetLayeredArchitectureWithDapper.Business.DependencyInjection
+namespace Business.DependencyInjection
 {
     public static class BusinessDIOperations
     {

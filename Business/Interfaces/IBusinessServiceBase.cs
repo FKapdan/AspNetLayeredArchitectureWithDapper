@@ -1,7 +1,7 @@
-﻿using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
+﻿using Core.Entities.Abstracts;
 using System.Collections.Generic;
 
-namespace AspNetLayeredArchitectureWithDapper.Business.Interfaces
+namespace Business.Interfaces
 {
     public interface IBusinessServiceBase<T> where T : class
     {

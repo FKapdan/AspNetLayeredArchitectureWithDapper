@@ -1,4 +1,4 @@
-﻿using AspNetLayeredArchitectureWithDapper.Web.ViewModels;
+﻿using Web.ViewModels;
 using Core.Attributes.Authorize;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.Controllers
+namespace Web.Controllers
 {
     [WebAuthorize]
     public class AspNetLayeredArchitectureWithDapperBase : Controller

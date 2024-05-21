@@ -1,9 +1,9 @@
-﻿using AspNetLayeredArchitectureWithDapper.Core.Results;
+﻿using Core.Entities.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.Filters
+namespace Web.Filters
 {
     public class GeneralModelValidationAttribute : ActionFilterAttribute
     {

@@ -1,9 +1,9 @@
-﻿using AspNetLayeredArchitectureWithDapper.Entities;
+﻿using Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AspNetLayeredArchitectureWithDapper.Repository.Interfaces
+namespace Repository.Interfaces
 {
     public interface IDatabaseTableModelRepository
     {

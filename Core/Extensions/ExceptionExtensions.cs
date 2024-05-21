@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AspNetLayeredArchitectureWithDapper.Core.Extensions
+namespace Core.Extensions
 {
     public static class ExceptionExtensions
     {

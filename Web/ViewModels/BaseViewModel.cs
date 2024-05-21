@@ -1,6 +1,6 @@
-﻿using AspNetLayeredArchitectureWithDapper.Web.ViewModels.Interfaces;
+﻿using Web.ViewModels.Interfaces;
 
-namespace AspNetLayeredArchitectureWithDapper.Web.ViewModels
+namespace Web.ViewModels
 {
     public class BaseViewModel : IBaseViewModel
     {

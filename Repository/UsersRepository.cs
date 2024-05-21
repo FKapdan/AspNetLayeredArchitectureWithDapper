@@ -1,11 +1,11 @@
-﻿using AspNetLayeredArchitectureWithDapper.Core.Abstracts;
-using AspNetLayeredArchitectureWithDapper.Core.Results;
-using AspNetLayeredArchitectureWithDapper.Entities.Repository;
+﻿using Core.Entities.Abstracts;
+using Core.Entities.Results;
+using Entities.Repository;
 using Dapper;
 using MySql.Data.MySqlClient;
 using System.Data;
 
-namespace AspNetLayeredArchitectureWithDapper.Repository
+namespace Repository
 {
     public class UsersRepository : RepositoryBase<UsersDto>
     {

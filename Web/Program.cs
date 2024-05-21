@@ -1,5 +1,5 @@
-using AspNetLayeredArchitectureWithDapper.Business.DependencyInjection;
-using AspNetLayeredArchitectureWithDapper.Web.Filters;
+using Business.DependencyInjection;
+using Web.Filters;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Web;

@@ -1,4 +1,4 @@
-﻿namespace AspNetLayeredArchitectureWithDapper.Core.Abstracts
+﻿namespace Core.Entities.Abstracts
 {
     public interface IResultBase
     {
