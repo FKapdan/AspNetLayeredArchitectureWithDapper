@@ -1,6 +1,6 @@
 ﻿using Core.Entities.Results;
 using Core.Extensions;
-using Core.Utilities.Abstracts;
+using Core.Services.Abstracts;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -32,7 +32,7 @@ namespace Core.Attributes.Authorize
                 }
                 return;
             }
-            var jwtHelper = (IJwtHelpler)context.HttpContext.RequestServices.GetService(typeof(IJwtHelpler));
+            var jwtHelper = (IJwtServices)context.HttpContext.RequestServices.GetService(typeof(IJwtServices));
             if (_requiredRoles.Any() && !HasRequiredRoles(jwtHelper.ParseToken(context.HttpContext.User.Identity.GetByKey("Token"))))
             {
                 context.Result = new UnauthorizedResult();

@@ -1,27 +1,27 @@
 ﻿using Core.Entities.Jwt;
-using Core.Utilities.Abstracts;
+using Core.Services.Abstracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Core.Utilities
+namespace Core.Services
 {
-    public sealed class JwtHelpler : IJwtHelpler
+    public sealed class JwtServices : IJwtServices
     {
         private readonly JwtOptions jwtOptions;
-        public JwtHelpler(IConfiguration Configuration)
+        public JwtServices(IConfiguration Configuration)
         {
             jwtOptions = Configuration.GetSection("JwtOptions").Get<JwtOptions>();
         }
         public string CreateToken(IEnumerable<Claim> claims)
         {
-            var credentials = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecurityKey));
+            var credentials = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Key));
             var securityTokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(jwtOptions.TokenExpiration),
+                Expires = DateTime.UtcNow.AddMinutes(jwtOptions.TokenExpireTime),
                 SigningCredentials = new SigningCredentials(credentials, SecurityAlgorithms.HmacSha256Signature),
                 Issuer = jwtOptions.Issuer,
                 Audience = jwtOptions.Audience
@@ -36,7 +36,7 @@ namespace Core.Utilities
             var tokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecurityKey)),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Key)),
                 ValidateLifetime = false, // Not required for parsing, can be adjusted
                 ValidateIssuer = false,
                 ValidateAudience = false
@@ -51,7 +51,7 @@ namespace Core.Utilities
             var tokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecurityKey)),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Key)),
                 ValidateLifetime = true,
                 ValidateIssuer = false,
                 ValidateAudience = false

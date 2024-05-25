@@ -2,8 +2,6 @@
 using Core.Entities.Settings;
 using Core.Services;
 using Core.Services.Abstracts;
-using Core.Utilities;
-using Core.Utilities.Abstracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -33,7 +31,8 @@ namespace Core.Extensions
             {
                 Configuration = coreconfinfo;
             }
-            services.AddSingleton<ILogService, FileLogService>();
+
+
             services.Configure<CoreSettings>(Configuration.GetSection(nameof(CoreSettings)));
             JsonSerializerExtensions.Configure();
             CustomILoggerExtensions.Configure(services.BuildServiceProvider(), Configuration);
@@ -43,9 +42,13 @@ namespace Core.Extensions
         {
             var options = new CoreDIConfs();
             optionsBuilder(options);
-            if (options.IsAddJwtHelper)
+            if (options.IsAddJwtServices)
             {
-                services.AddSingleton<IJwtHelpler, JwtHelpler>();
+                services.AddSingleton<IJwtServices, JwtServices>();
+            }
+            if (options.IsAddJwtServices)
+            {
+                services.AddSingleton<ILogService, FileLogService>();
             }
             return services;
         }

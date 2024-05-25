@@ -2,6 +2,7 @@
 {
     public enum LogEnv
     {
+        None,
         File,
         Db,
         Elastic

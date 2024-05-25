@@ -19,7 +19,10 @@ namespace Core.Entities.Results
             this.Success = Success;
             this.Message = Message;
         }
-
+        public ResultBase(string Message)
+        {
+            this.Message = Message;
+        }
         public bool Success { get; set; }
         /// <summary>
         /// Ekran hata dönüşlerinde kulanılabilir.

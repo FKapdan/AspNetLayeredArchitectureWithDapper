@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 
-namespace Core.Utilities.Abstracts
+namespace Core.Services.Abstracts
 {
-    public interface IJwtHelpler
+    public interface IJwtServices
     {
         string CreateToken(IEnumerable<Claim> claims);
         IEnumerable<Claim> ParseToken(string token);

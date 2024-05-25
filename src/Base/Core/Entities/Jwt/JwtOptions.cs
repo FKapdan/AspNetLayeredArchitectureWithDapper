@@ -4,7 +4,7 @@
     {
         public string Audience { get; set; }
         public string Issuer { get; set; }
-        public int TokenExpiration { get; set; }
-        public string SecurityKey { get; set; }
+        public int TokenExpireTime { get; set; }
+        public string Key { get; set; }
     }
 }

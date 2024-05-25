@@ -17,7 +17,7 @@ namespace Core.Extensions
         public static void Configure(IServiceProvider serviceProvider, IConfiguration configuration)
         {
             httpContextAccessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
-            logService = serviceProvider.GetRequiredService<ILogService>();
+            logService = serviceProvider.GetService<ILogService>();
             coreSettings = configuration.Get<CoreSettings>();
         }
         /// <summary>
