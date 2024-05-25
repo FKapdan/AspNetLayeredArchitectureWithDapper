@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Entities.General
+﻿namespace Core.Entities.General
 {
-    internal class LogModel
+    public sealed class LogModel
     {
         public DateTime CreateDate { get; set; }
         public string Message { get; set; }
@@ -22,5 +16,6 @@ namespace Core.Entities.General
         public string LogType { get; set; }
         public int Duration { get; set; }
         public string TraceIdentifier { get; set; }
+        public string RequestType { get; set; }
     }
 }

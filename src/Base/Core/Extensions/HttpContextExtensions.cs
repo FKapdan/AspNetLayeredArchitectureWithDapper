@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Extensions
 {
@@ -19,7 +14,32 @@ namespace Core.Extensions
         {
             if (httpContext == null) return null;
             httpContext.Request.Headers.TryGetValue(HeaderKey, out StringValues headervalue);
-            return headervalue.ToString();
+            return headervalue.FirstOrDefault();
+        }
+        public static string? GetRequestMethod(this HttpContext httpContext)
+        {
+            if (httpContext == null) return null;
+            return httpContext.Request.Method;
+        }
+        public static string? GetRequestIp(this HttpContext httpContext)
+        {
+            if (httpContext == null) return null;
+            return httpContext.Connection.RemoteIpAddress.ToString();
+        }
+        public static int GetResponseStatusCode(this HttpContext httpContext)
+        {
+            if (httpContext == null) return 520;
+            return httpContext.Response.StatusCode;
+        }
+        public static string GetTraceInf(this HttpContext httpContext)
+        {
+            if (httpContext == null) return null;
+            return httpContext.TraceIdentifier;
+        }
+        public static string GetUser(this HttpContext httpContext)
+        {
+            if (httpContext == null) return null;
+            return httpContext.User.Identity.Name;
         }
     }
 }

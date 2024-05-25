@@ -83,7 +83,7 @@ namespace Business
         public override IDataResultBase<Assets> Get(int Id)
         {
             var DbResult = _repository.Get(Id);
-            
+
             var BusinessModel = BusinessMapper.Mapper.Map<DataResultBase<Assets>>(DbResult);
             if (BusinessModel.Success && BusinessModel.Data == null)
             {

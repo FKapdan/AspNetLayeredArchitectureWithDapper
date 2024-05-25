@@ -1,5 +1,7 @@
 ﻿using Core.Entities;
 using Core.Entities.Settings;
+using Core.Services;
+using Core.Services.Abstracts;
 using Core.Utilities;
 using Core.Utilities.Abstracts;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +23,8 @@ namespace Core.Extensions
                     {
                         Configuration[confitem.Key] = confitem.Value;
                     }
-                    else {
+                    else
+                    {
                         Configuration[confitem.Key] = confitem.Value;
                     }
                 }
@@ -30,7 +33,10 @@ namespace Core.Extensions
             {
                 Configuration = coreconfinfo;
             }
+            services.AddSingleton<ILogService, FileLogService>();
             services.Configure<CoreSettings>(Configuration.GetSection(nameof(CoreSettings)));
+            JsonSerializerExtensions.Configure();
+            CustomILoggerExtensions.Configure(services.BuildServiceProvider(), Configuration);
             return services;
         }
         public static IServiceCollection AddCoreOperations(this IServiceCollection services, Action<CoreDIConfs> optionsBuilder)

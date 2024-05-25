@@ -1,7 +1,5 @@
-using Core.Extensions;
 using Business.DI;
-using Microsoft.Extensions.DependencyInjection;
-using Core.Providers;
+using Core.Extensions;
 namespace Api
 {
     public class Program
@@ -20,14 +18,13 @@ namespace Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddCore(builder.Configuration).AddCoreOperations(opts =>
             {
                 opts.IsAddJwtHelper = true;
             });
             builder.Services.AddBusinessServices(builder.Configuration);
             builder.Services.AddHttpContextAccessor();
-            builder.Logging.AddProvider(new CoreILoggerProvider(builder.Services.BuildServiceProvider(), builder.Configuration));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
